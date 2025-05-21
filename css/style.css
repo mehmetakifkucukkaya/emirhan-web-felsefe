@@ -1,0 +1,974 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #4a6ed0;
+    --primary-dark: #3551a3;
+    --secondary-color: #28a745;
+    --bg-color: #f8f9fa;
+    --text-color: #333;
+    --light-text: #6c757d;
+    --border-color: #dee2e6;
+    --white: #ffffff;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    --accent-color: #ff6b6b;
+    --twitter-blue: #1da1f2;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+section {
+    padding: 80px 0;
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 10px rgba(74, 110, 208, 0.2);
+}
+
+.btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(74, 110, 208, 0.3);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Header Styles */
+header {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-color);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(to right, #4a6ed0, #7c96e7);
+    color: var(--white);
+    padding: 150px 0 80px;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+/* Test Container */
+.test-container {
+    display: none;
+    background-color: var(--white);
+    padding: 50px 0;
+    min-height: 100vh;
+}
+
+.test-header {
+    margin-bottom: 30px;
+}
+
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+.test-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* Question Container */
+.question-container {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--box-shadow);
+    transition: filter 0.3s ease;
+    position: relative;
+}
+
+.question-container.blur .options-container,
+.question-container.blur h2,
+.question-container.blur .philosopher-tweet {
+    filter: blur(4px);
+    pointer-events: none;
+}
+
+.question-container h2 {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.options-container {
+    display: grid;
+    gap: 15px;
+}
+
+.option {
+    background-color: #f1f3f9;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+}
+
+.option:hover {
+    background-color: #e5eaf7;
+    border-color: #d1daf0;
+}
+
+.option.selected {
+    background-color: #e5eaf7;
+    border-color: var(--primary-color);
+}
+
+.option.correct {
+    background-color: rgba(40, 167, 69, 0.1);
+    border-color: var(--secondary-color);
+}
+
+.option.wrong {
+    background-color: rgba(220, 53, 69, 0.1);
+    border-color: #dc3545;
+}
+
+.option-prefix {
+    font-weight: 600;
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.test-controls {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Results Section */
+.results {
+    display: none;
+    background-color: var(--white);
+    padding: 80px 0;
+    min-height: 100vh;
+}
+
+.score-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.score {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #f1f3f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 10px solid var(--primary-color);
+}
+
+.score span {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.score-details {
+    flex: 1;
+}
+
+.score-details p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.result-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.answers-review {
+    display: none;
+    margin-top: 30px;
+}
+
+.review-question {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.review-question h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.review-options {
+    display: grid;
+    gap: 10px;
+}
+
+/* About Section */
+.about {
+    background-color: var(--white);
+    text-align: center;
+    padding: 80px 0;
+    animation: pageLoad 0.8s ease-out forwards;
+}
+
+@keyframes pageLoad {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.about h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+    animation: fadeDown 1s ease forwards;
+}
+
+.about h2:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: lineExpand 1.2s ease-out forwards;
+    animation-delay: 0.6s;
+}
+
+@keyframes lineExpand {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 50px;
+    }
+}
+
+@keyframes fadeDown {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.about-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.about-image {
+    flex: 0 0 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: slideInFromLeft 1.2s ease-out forwards;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.about-image img:hover {
+    transform: translateY(-10px);
+    transition: transform 0.3s ease;
+}
+
+.about-text {
+    flex: 1;
+    text-align: left;
+    font-size: 17px;
+    line-height: 1.7;
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 0.7s;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.about-text .intro {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+}
+
+/* Responsive about section */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .about-text {
+        text-align: center;
+    }
+    
+    .about-image {
+        flex: 0 0 100%;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    
+    .about-image img {
+        max-width: 100%;
+        animation: fadeInFromTop 1.2s ease-out forwards;
+    }
+    
+    @keyframes fadeInFromTop {
+        0% {
+            transform: translateY(-50px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
+
+/* Contact Section */
+.contact {
+    background-color: #f1f3f9;
+}
+
+.contact h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact p {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+#contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#contact-form .btn {
+    width: 100%;
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: var(--white);
+    padding: 50px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+footer .logo a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+footer .logo h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+footer .logo span {
+    color: var(--primary-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--white);
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Filozof Avatarları Stilleri */
+.philosopher-selection {
+    display: none;
+    background-color: var(--white);
+    padding: 50px 0;
+    min-height: 100vh;
+}
+
+.avatars-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 40px 0;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.avatar-card {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: var(--transition);
+    cursor: pointer;
+    border: 2px solid transparent;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: rgba(74, 110, 208, 0.2);
+}
+
+.avatar-card.selected {
+    border-color: var(--primary-color);
+    background-color: #e5eaf7;
+}
+
+.avatar-card .philosopher-power {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    margin: 0;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 5px 12px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 3px 8px rgba(74, 110, 208, 0.3);
+}
+
+.avatar-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 4px solid var(--primary-color);
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.avatar-card:hover img {
+    transform: scale(1.05);
+    border-width: 5px;
+}
+
+.avatar-card h3 {
+    margin-bottom: 8px;
+    color: var(--primary-color);
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.avatar-card .catchphrase {
+    font-style: italic;
+    font-size: 14px;
+    color: var(--text-color);
+    line-height: 1.5;
+    margin-bottom: 18px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-card .description {
+    font-size: 14px;
+    color: var(--light-text);
+    margin-top: 12px;
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+/* Filozof Tepki Stili - Eski yerine geri ekledim */
+.philosopher-reaction {
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin: 15px 0;
+    animation: fadeInOut 3.5s forwards;
+    text-align: center;
+    font-weight: 500;
+    position: absolute;
+    z-index: 100;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 80%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translate(-50%, -60%); }
+    10% { opacity: 1; transform: translate(-50%, -50%); }
+    80% { opacity: 1; transform: translate(-50%, -50%); }
+    100% { opacity: 0; transform: translate(-50%, -40%); }
+}
+
+/* Filozof Tweet Stilleri */
+.philosopher-tweet {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.tweet-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.tweet-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.tweet-user-info {
+    flex: 1;
+}
+
+.tweet-user-info h4 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.tweet-user-info span {
+    color: var(--light-text);
+    font-size: 14px;
+}
+
+.tweet-content {
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.tweet-meta {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    color: var(--light-text);
+    font-size: 14px;
+}
+
+.tweet-meta span {
+    display: flex;
+    align-items: center;
+}
+
+.tweet-meta i {
+    margin-right: 5px;
+    color: var(--twitter-blue);
+}
+
+/* Başarı Rozeti Stilleri */
+.score-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.badge-image {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 15px;
+}
+
+.badge-title {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.badge-message {
+    font-style: italic;
+    text-align: center;
+    color: var(--light-text);
+}
+
+/* Selected Philosopher Display */
+.selected-philosopher {
+    display: flex;
+    align-items: center;
+    background-color: #f1f3f9;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.selected-philosopher img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.selected-philosopher-info {
+    flex: 1;
+}
+
+.selected-philosopher-info h4 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.selected-philosopher-info p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--light-text);
+}
+
+.philosopher-power {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .hero p {
+        font-size: 18px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .score-card {
+        flex-direction: column;
+    }
+    
+    .score {
+        margin-bottom: 20px;
+    }
+    
+    .test-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .avatars-container {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+    }
+    
+    .avatar-card {
+        padding: 25px 15px;
+    }
+    
+    .avatar-card img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 15px;
+    }
+    
+    .avatar-card h3 {
+        font-size: 20px;
+    }
+    
+    .avatar-card .philosopher-power {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 4px 10px;
+        font-size: 11px;
+    }
+    
+    .badge-image {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .philosopher-tweet {
+        padding: 10px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .avatars-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .avatar-card img {
+        width: 110px;
+        height: 110px;
+    }
+} 

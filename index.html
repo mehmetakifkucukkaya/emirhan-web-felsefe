@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Felsefe Testi | 11. Sınıf</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <a href="#"
+              ><h1>Felsefe<span>Köşesi</span></h1></a
+            >
+          </div>
+          <ul class="nav-links">
+            <li><a href="#" class="active">Ana Sayfa</a></li>
+            <li><a href="#about">Hakkında</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>11. Sınıf Felsefe Testi</h1>
+          <p>
+            Bilgilerinizi test edin ve felsefe alanında kendinizi geliştirin!
+          </p>
+          <button id="start-test-btn" class="btn">Teste Başla</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filozof Seçim Ekranı -->
+    <section class="philosopher-selection" id="philosopher-selection">
+      <div class="container">
+        <h2>Filozofunu Seç!</h2>
+        <p>
+          Hangi büyük düşünürün rehberliğinde bu felsefi yolculuğa çıkmak
+          istersin?
+        </p>
+        <div class="avatars-container" id="avatars-container">
+          <!-- Filozof avatarları buraya dinamik olarak eklenecek -->
+        </div>
+        <button id="start-with-philosopher" class="btn">
+          Bu Filozofla Başla
+        </button>
+      </div>
+    </section>
+
+    <section class="test-container" id="test-section">
+      <div class="container">
+        <div class="test-header">
+          <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+          </div>
+          <div class="test-info">
+            <span id="question-number">Soru 0/10</span>
+            <span id="timer">Süre: 00:00</span>
+          </div>
+          <!-- Seçilen filozof gösterimi -->
+          <div class="selected-philosopher" id="selected-philosopher-display">
+            <!-- Seçilen filozof bilgileri buraya dinamik olarak eklenecek -->
+          </div>
+        </div>
+        <div class="question-container">
+          <h2 id="question-text">
+            Test başlatıldığında sorular burada görünecek.
+          </h2>
+          <div class="options-container" id="options-container">
+            <!-- Options will be inserted here by JavaScript -->
+          </div>
+          <!-- Filozof tweet alanı -->
+          <div class="philosopher-tweet" id="philosopher-tweet">
+            <!-- Filozofların tweetleri burada gösterilecek -->
+          </div>
+        </div>
+        <div class="test-controls">
+          <button id="next-btn" class="btn">Sonraki Soru</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="results" id="results-section">
+      <div class="container">
+        <h2>Test Sonuçları</h2>
+        <div class="score-card">
+          <div class="score">
+            <span id="score-text">0/10</span>
+          </div>
+          <div class="score-details">
+            <p>Doğru: <span id="correct-answers">0</span></p>
+            <p>Yanlış: <span id="wrong-answers">0</span></p>
+            <p>Geçen Süre: <span id="time-spent">00:00</span></p>
+          </div>
+        </div>
+        <!-- Felsefi Başarı Rozeti -->
+        <div class="score-badge" id="score-badge">
+          <!-- Başarı rozeti bilgileri burada gösterilecek -->
+        </div>
+        <div class="result-actions">
+          <button id="show-answers-btn" class="btn btn-outline">
+            Cevapları Göster
+          </button>
+          <button id="restart-btn" class="btn">Yeniden Başla</button>
+        </div>
+        <div class="answers-review" id="answers-review">
+          <!-- Review answers will be inserted here by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container">
+        <h2>Hakkında</h2>
+        <div class="about-content">
+          <div class="about-image">
+            <img
+              src="images/emirhan.png"
+              alt="Emirhan"
+              onerror="this.src='https://via.placeholder.com/300x400?text=Emirhan'"
+            />
+          </div>
+          <div class="about-text">
+            <p class="intro">Merhaba, ben Emirhan!</p>
+            <p>
+              Bir gün "Düşünüyorum öyleyse varım" dedim… Sonra sınav haftası
+              geldi, bir an yok olduğumu sandım.
+            </p>
+            <p>
+              Felsefeyle ilgileniyorum ama Descartes gibi derin değilim, daha
+              çok "Bu ne biçim hayat ya?" seviyesindeyim. Bu siteyi hem eğlenmek
+              hem de biraz düşündürmek için yaptım. Soru oyunlarıyla kafanı
+              karıştırırken bir yandan da seni gülümsetmek niyetindeyim. Çünkü
+              hayat zaten yeterince absürt; neden biraz da biz absürtleşmeyelim?
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="logo">
+            <a href="#">
+              <h1>Felsefe<span>Köşesi</span></h1>
+            </a>
+            <p>11. Sınıf Felsefe Test Platformu</p>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 Emirhan Bahşiş.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/philosophers.js"></script>
+    <script src="js/questions.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
